@@ -2,7 +2,7 @@
 
 Portable NaCl-powered encryption
 
-Salty makes it easy to send strongly-encrypted messages with a shared key. It uses [NaCl](https://nacl.cr.yp.to) for encryption and [basE91](http://base91.sourceforge.net) for portability.
+Salty makes it easy to send strongly-encrypted messages with a shared key. It uses [NaCl](https://nacl.cr.yp.to) (via [Libsodium](https://download.libsodium.org/doc/)) for encryption and [basE91](http://base91.sourceforge.net) for portability.
 
 With Salty, you can encrypt a message as long as 185 characters and the resulting cipher will still fit in a tweet (~277 characters), making it ideal for encrypting tweets or other length-restricted communication. You can use it anywhere, though, with text of any length.
 
