@@ -1,0 +1,119 @@
+@import url('https://rsms.me/inter/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Fira+Mono&display=swap');
+
+html {
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	overflow: auto;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+td {
+	padding: .5em;
+	border: 1px solid #ccc;
+}
+
+body {
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	background: #fff;
+	color: #000;
+	font-size: calc(1em + .5vw);
+	line-height: 150%;
+}
+
+h1, h2, h3 {
+	margin: 3rem 0 2rem 0;
+}
+
+main {
+	display: block;
+	margin: auto;
+	padding: 2% 5%;
+}
+
+input[type=submit] {
+	font-family: inherit;
+	font-size: inherit;
+	padding: .5em;
+	border: 0;
+	border-radius: .2em;
+	-webkit-appearance: button;
+	background: #387cf7;
+	color: #fff;
+}
+
+input[type=submit]:hover {
+	cursor: pointer;
+	background: #0448c8;
+}
+
+textarea, input[type=text] {
+	width: 100%;
+	border: 1px solid #000;
+	border-radius: .2em;
+	font-family: 'Fira Mono', monospace;
+	font-size: inherit;
+	padding: .5em;
+}
+
+textarea {
+	height: 8em;
+}
+
+.output {
+	font-family: 'Fira Mono', monospace;
+	display: block;
+	unicode-bidi: embed;
+	white-space: pre-wrap;
+}
+
+.breakable {
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.detected {
+	display: inline-block;
+	margin-top: 1em;
+	background: #FFCC66;
+	color: #000;
+	padding: .2em .5em;
+	border-radius: .2em;
+}
+
+.chars {
+	display: inline-block;
+	background: #555;
+	color: #fff;
+	padding: .2em .5em;
+	border-radius: .2em;
+	margin-bottom: 1em;
+}
+
+.compressed, .uncompressed, .decrypted {
+	padding: .5em;
+	border-radius: .2em;
+}
+
+.compressed {
+	background: #99CCFF;
+}
+
+.uncompressed {
+	background: #CCCCFF;
+}
+
+.decrypted {
+	background: #99CC66;
+}
