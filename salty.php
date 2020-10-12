@@ -1,10 +1,10 @@
 <?php /*
 
-          /)       
+		  /)       
  _   _   // _/_    
 /_)_(_(_(/_ (__(_/_
-              .-/  
-             (_/   
+			  .-/  
+			 (_/   
 
 Salty: Portable NaCl-powered encryption
 https://salty.fyi
@@ -34,8 +34,13 @@ SOFTWARE.
 
 */
 
-define('SALT', sodium_hex2bin('hex representation of 16 bytes of binary goes here'));
+// Your salt should be a hex representation of 16 bytes of cryptographically secure random binary data.
+// You can generate a good random salt value from the PHP CLI like this: php -r "echo bin2hex(random_bytes(16));"
+// The resulting string will look like this: 7674ffcd9882e411415ea1ab7726642d
 
+define('SALT', sodium_hex2bin('add your hex string here'));
+
+// basE91 encoding
 // Copyright (c) 2005-2006 Joachim Henke
 // http://base91.sourceforge.net/
 
@@ -57,7 +62,7 @@ function base91_decode($d) {
 	$l = strlen($d);
 	$v = -1;
 	for ($i = 0; $i < $l; ++$i) {
-		$c = $b91_dectab[$d{$i}];
+		$c = $b91_dectab[$d[$i]];
 		if(!isset($c))
 			continue;
 		if($v < 0)
@@ -84,7 +89,7 @@ function base91_encode($d) {
 	$n = $b = $o = null;
 	$l = strlen($d);
 	for ($i = 0; $i < $l; ++$i) {
-		$b |= ord($d{$i}) << $n;
+		$b |= ord($d[$i]) << $n;
 		$n += 8;
 		if($n > 13) {
 			$v = $b & 8191;
