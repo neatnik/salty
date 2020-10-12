@@ -1,10 +1,10 @@
 <?php /*
 
-		  /)       
- _   _   // _/_    
+          /)
+ _   _   // _/_
 /_)_(_(_(/_ (__(_/_
-			  .-/  
-			 (_/   
+              .-/
+             (_/
 
 Salty: Portable NaCl-powered encryption
 https://salty.fyi
