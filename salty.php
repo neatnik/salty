@@ -11,7 +11,7 @@ https://salty.fyi
 
 Released as free software under the terms of the MIT License.
 
-Copyright (c) 2020 Neatnik LLC
+Copyright (c) 2021 Neatnik LLC
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
