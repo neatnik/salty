@@ -8,7 +8,7 @@ With Salty, you can encrypt a message as long as 185 characters and the resultin
 
 ## Demo
 
-You can try it out at https://salty.fyi.
+You can try it out at https://neatnik.net/salty/
 
 ## Examples
 
