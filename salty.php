@@ -139,3 +139,47 @@ function salty_key($key) {
 	$key = sodium_crypto_pwhash(32, $key, SALT, SODIUM_CRYPTO_PWHASH_OPSLIMIT_INTERACTIVE, SODIUM_CRYPTO_PWHASH_MEMLIMIT_INTERACTIVE);
 	return $key;
 }
+
+// API
+
+if(isset($_REQUEST['action'])) {
+	
+	if($_REQUEST['action'] !== 'encrypt' && $_REQUEST['action'] !== 'decrypt') {
+		$response['http_status'] = 400;
+		$response['response'] = 'Error: action must be one of \'encrypt\' or \'decrypt\'.';
+	}
+	
+	else if(!isset($_REQUEST['payload'])) {
+		$response['http_status'] = 400;
+		$response['response'] = 'Error: missing payload parameter.';
+	}
+	
+	else if(!isset($_REQUEST['key'])) {
+		$response['http_status'] = 400;
+		$response['response'] = 'Error: missing key parameter.';
+	}
+	
+	else if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'encrypt') {
+		$response['http_status'] = 200;
+		$response['response'] = salty_encrypt($_REQUEST['payload'], salty_key($_REQUEST['key']));
+	}
+	
+	else if(isset($_REQUEST['action']) && $_REQUEST['action'] == 'decrypt') {
+		
+		$result = salty_decrypt($_REQUEST['payload'], salty_key($_REQUEST['key']));
+		
+		if(!$result) {
+			$response['http_status'] = 400;
+			$response['response'] = 'Error: incorrect key';
+		}
+		else {
+			$response['http_status'] = 200;
+			$response['response'] = salty_decrypt($_REQUEST['payload'], salty_key($_REQUEST['key']));
+		}
+	}
+	
+	http_response_code($response['http_status']);
+	header('Content-type: application/json');
+	die(json_encode($response, JSON_PRETTY_PRINT));
+	
+}
