@@ -41,7 +41,7 @@ H&0c{~5i@CT!V&m5O4&BHNcEL:%c5Tbsd9n
 
 Using the key above on either cipher will yield the same plaintext message. Salty’s shortened format is ideal for space-restricted contexts (e.g. Twitter), whereas the longer format works better in emails or other places where text might need to freely wrap.
 
-## Spec ##
+## Spec
 
 Salty’s spec is uncomplicated:
 
@@ -49,6 +49,10 @@ Salty’s spec is uncomplicated:
 * Then take the resulting binary data and encode it in basE91. (Why basE91? It’s the most efficient base conversion around, making the most effective use of available ASCII characters.)
 * The resulting encoded cipher can be used as is, or wrapped in the BEGIN header and END footer, and spaces can be added to make the cipher wrap nicely in different places (e.g. email).
 * When decrypting a cipher, first remove any spaces or newline characters, as well as the optional BEGIN/END header/footer. The resulting basE91-decoded cipher is ready for decryption via NaCl, using the same key and salt used during encryption.
+
+## API
+
+Salty comes with an uncomplicated API. Simply POST an `action` of either `encrypt` or `decrypt`, a `payload` of plaintext to be encrypted or a Salty cipher to be decrypted, and a `key`. The response will include an `http_status` code (200 for success, 400 for failure) and a `response` consisting of your encrypted/decrypted text (or an error message if the status code is 400).
 
 ## Further Reading
 
